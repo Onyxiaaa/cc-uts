@@ -15,11 +15,10 @@ app.use(cors({
 
 // Konfigurasi AWS S3
 const s3 = new AWS.S3({
-  region: 'ap-southeast-2', // ganti dengan region bucket kamu
-  accessKeyId: '',  // ganti dengan access key kamu
-  secretAccessKey: ''   // ganti dengan secret key kamu
+  region: process.env.AWS_REGION, // Menggunakan environment variable
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,  // Menggunakan environment variable
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY   // Menggunakan environment variable
 });
-
 
 const bucketName = process.env.BUCKET_NAME; // Menggunakan environment variable
 
