@@ -46,6 +46,6 @@ jobs:
           # SSH ke server tujuan dan restart app.js menggunakan PM2
           ssh -i ahan.pem -o StrictHostKeyChecking=no ec2-user@10.0.2.224 << 'INNER_EOF'
             cd /home/ec2-user/cc-uts
-            pm2 restart app.js || pm2 start app.js
+            pm2 restart app.js
           INNER_EOF
         EOF
