@@ -44,8 +44,8 @@ jobs:
           scp -i ahan.pem -o StrictHostKeyChecking=no /var/www/html/cc-uts/app.js ec2-user@10.0.2.224:/home/ec2-user/cc-uts
           
           # SSH ke server tujuan dan restart app.js menggunakan PM2
-          ssh -i ahan.pem -o StrictHostKeyChecking=no ec2-user@10.0.2.224 << 'INNER_EOF'
+          ssh -i ahan.pem -o StrictHostKeyChecking=no ec2-user@10.0.2.224\
             cd /home/ec2-user/cc-uts
             pm2 restart app.js
-          INNER_EOF
+
         EOF
