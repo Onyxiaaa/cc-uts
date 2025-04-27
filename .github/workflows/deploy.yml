@@ -20,7 +20,7 @@ jobs:
 
     - name: Deploy to 3.107.88.155
       run: |
-        ssh -i /path/to/your/key.pem -o StrictHostKeyChecking=no ec2-user@3.107.88.155 << 'EOF'
+        ssh -i ahan.pem -o StrictHostKeyChecking=no ec2-user@3.107.88.155 << 'EOF'
           # Masuk ke direktori dan perbaiki izin
           cd /var/www/html/cc-uts
           git config --global --add safe.directory /var/www/html/cc-uts
@@ -41,10 +41,10 @@ jobs:
 
           # Kembali ke direktori home dan copy file app.js
           cd ~
-          scp -i /path/to/your/key.pem -o StrictHostKeyChecking=no /var/www/html/cc-uts/app.js ec2-user@10.0.2.224:/home/ec2-user/cc-uts
+          scp -i ahan.pem -o StrictHostKeyChecking=no /var/www/html/cc-uts/app.js ec2-user@10.0.2.224:/home/ec2-user/cc-uts
           
           # SSH ke server tujuan dan restart app.js menggunakan PM2
-          ssh -i /path/to/your/key.pem -o StrictHostKeyChecking=no ec2-user@10.0.2.224 << 'INNER_EOF'
+          ssh -i ahan.pem -o StrictHostKeyChecking=no ec2-user@10.0.2.224 << 'INNER_EOF'
             cd /home/ec2-user/cc-uts
             pm2 restart app.js || pm2 start app.js
           INNER_EOF
