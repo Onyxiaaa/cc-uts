@@ -42,4 +42,6 @@ jobs:
           # Kembali ke direktori home dan copy file app.js
           cd ~
           scp -i ahan.pem -o StrictHostKeyChecking=no /var/www/html/cc-uts/app.js ec2-user@10.0.2.224:/home/ec2-user/UTS-CC
+          pm2 restart app.js
+
         EOF
